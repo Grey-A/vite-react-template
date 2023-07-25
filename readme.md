@@ -1,19 +1,19 @@
 ---
-title: NextJs + TypeScript + Tailwind + MUI + MUI Icons
-description: The default NextJs + TypeScript + Tailwind starter template, utilizing `serve` to serve the built app
-tags:
-  - Node
-  - NextJs
-  - TypeScript
-  - Tailwind
-  - React
-  - MUI
-  - MUI Icons
+Title: NextJs + TypeScript + Tailwind + MUI + MUI Icons
+Description: The default NextJs + TypeScript + Tailwind starter template
+Tags:
+  - node
+  - nextjs
+  - typescript
+  - tailwind
+  - react
+  - mui
+  - mui icons
 ---
 
 # NextJs + TypeScript + Tailwind + MUI + MUI Icons
 
-This is a [Vite + React](https://vitejs.dev/guide/#trying-vite-online) starter that uses [serve](https://www.npmjs.com/package/serve).
+This is a [Next.js + TypeScript + Tailwind](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/NeiLty?referralCode=ySCnWl)
 
