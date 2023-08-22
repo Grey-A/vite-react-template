@@ -8,20 +8,14 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  .font-poppins {
+    font-family: var(--font-poppins);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .container {
+    @apply w-full 3xl:!max-w-[2580px] 2xl:!max-w-[100%] xl:!max-w-full lg:!max-w-full md:!max-w-full sm:!max-w-full xs:!max-w-full;
+  }
 }
