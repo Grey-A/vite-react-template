@@ -1,118 +1,244 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+import herobg from "@/public/images/herobg.png";
+import heroImage from "@/public/images/digital-library-concept-free-vector-removebg-preview 1.png";
+import { FilterList, Search } from "@mui/icons-material";
+import Card1 from "@/components/molecules/Cards/Card1";
+import Book from "@/public/images/book1.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import Card2 from "@/components/molecules/Cards/Card2";
+import Footer from "@/components/molecules/Footer/Footer";
+import Header from "@/components/molecules/Header/Header";
+
+
+const CardData = [
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+  {
+    imageUrl: Book,
+    title:
+      "The Official Sat Subject Test In Chemistry Study Guide (College Board Official Sat Study Guide) - Softcover",
+    publisherUrl: "/",
+    publisher: "The College Board",
+  },
+];
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <main className='w-full relative'>
+      <header className='fixed top-0 left-0 z-50 w-full'>
+        <Header />
+      </header>
+
+      <div className='mt-[7.4rem]'>
+        {/* Hero Section */}
+        <section className=' h-[800px] w-full relative z-10'>
+          <Image
+            src={herobg}
+            alt='Hero BG'
+            className='absolute top-0 w-full h-[800px] -z-20'
+          />
+          <div className='bg-transparent grid grid-cols-2 h-full w-full px-24'>
+            <div className='flex flex-col justify-center col-span-1 w-full'>
+              <div className='flex flex-col'>
+                <span className='text-subText leading-[140%] first-letter:capitalize text-3xl'>
+                  welcome to
+                </span>
+                <h3 className='flex font-bold text-7xl mt-2 mb-7'>
+                  <span className='text-primaryBrandColor capitalize'>
+                    Handy
+                  </span>
+                  <span className='text-primaryBrand capitalize'>Guide</span>
+                </h3>
+                <span className='w-[646px] text-2xl text-subText'>
+                  Embark on an endless journey of knowledge and inspiration
+                  through this captivating gateway.
+                </span>
+              </div>
+
+              {/* Form */}
+
+              <form className='flex items-center w-[449px] border-2 border-inputSecondary rounded-[12px] overflow-hidden mt-7'>
+                <input
+                  type='search'
+                  className='w-full outline-none  py-3 px-4 placeholder:text-lg text-lg placeholder:text-inputPlaceholderTextColor text-primaryBrandColor'
+                  placeholder='Search handout'
+                />
+
+                <span className='flex items-center justify-center w-20 h-14 bg-inputPlaceholderTextColor text-primaryBrandColor cursor-pointer'>
+                  <FilterList className='text-[30px]' />
+                </span>
+                <span className='flex items-center justify-center w-20 h-14 bg-inputPrimary text-inputBg cursor-pointer'>
+                  <Search className='text-[30px]' />
+                </span>
+              </form>
+            </div>
+
+            {/* Second Section */}
+            <div className='col-span-1 w-full flex items-center justify-center'>
+              <Image
+                src={heroImage}
+                alt='Hero BG'
+                className='w-[90%] object-cover'
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className='max-w-full flex flex-col items-center gap-4 flex-wrap m-[50px] bg-white'>
+          <h5 className='text-primaryBrandColor text-[25px] font-bold first-letter:capitalize w-full'>
+            Recommended for you
+          </h5>
+
+          <div className='w-full !px-0'>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 30,
+                },
+                1280: {
+                  slidesPerView: 2.8,
+                  spaceBetween: 30,
+                },
+                1350: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1536: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 15,
+                },
+              }}
+              className='h-full !bg-[#68fa0e]/0'
+            >
+              {CardData?.map(
+                ({ imageUrl, title, publisher, publisherUrl }, index) => {
+                  return (
+                    <SwiperSlide key={index} className='!w-fit'>
+                      <Card1
+                        title={title}
+                        imageUrl={imageUrl}
+                        publisher={publisher}
+                        publisherUrl={publisherUrl}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              )}
+            </Swiper>
+          </div>
+        </section>
+
+        <section className='max-w-full flex flex-col items-center gap-4 flex-wrap m-[50px] bg-white'>
+          <h5 className='text-primaryBrandColor text-[25px] font-bold first-letter:capitalize w-full'>
+            Available Handouts
+          </h5>
+
+          <div className='w-full !px-0'>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 30,
+                },
+                1280: {
+                  slidesPerView: 2.8,
+                  spaceBetween: 30,
+                },
+                1350: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1536: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 15,
+                },
+              }}
+              className='h-full !bg-[#68fa0e]/0'
+            >
+              {CardData?.map(
+                ({ imageUrl, title, publisher, publisherUrl }, index) => {
+                  return (
+                    <SwiperSlide key={index} className='!w-fit'>
+                      <Card2
+                        title={title}
+                        imageUrl={imageUrl}
+                        publisher={publisher}
+                        publisherUrl={publisherUrl}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              )}
+            </Swiper>
+          </div>
+        </section>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Footer Section */}
+      <Footer />
     </main>
-  )
+  );
 }
