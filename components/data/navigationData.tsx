@@ -49,7 +49,7 @@ export const navData: NavItem[] = [
   },
   {
     label: "Dropdown",
-    url: "",
+    url: "/Downdrop",
     items: [
       {
         label: "Sublink 1",
