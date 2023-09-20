@@ -22,19 +22,21 @@ const Card2: React.FC<Card2> = ({
   downloadLink,
 }) => {
   return (
-    <div className='flex flex-col items-center justify-center w-[393px] h-full p-3 shadow-[0px_10px_80px_rgba(0,_0,_0,_0.32)] bg-white overflow-hidden'>
-      <div className='flex flex-col justify-center items-center h-full w-fit'>
-        <div className='w-[361px] h-full max-w-[361px] mb-2'>
+    <div className='min-w-[266px] w-[266px] h-[476px] rounded-2xl shadow-[0px_4px_50px_5px_rgba(217,_217,_217,_0.25)] px-3'>
+      <div className='flex flex-col justify-center h-full w-fit'>
+        <div className='w-[206px] h-[263.897px]'>
           <Image
-            src={imageUrl}
+            src={typeof imageUrl === "string" ? imageUrl : imageUrl.src}
             alt={title}
-            className='w-full h-full px-4 object-cover'
+            width={100}
+            height={100}
+            className='w-full h-full object-cover'
           />
         </div>
 
-        <div className='flex flex-col justify-center w-full mt-2'>
-          <span className='font-bold text-subText text-ellipsis text-[18px] leading-[20px]'>
-            {truncateWords(title, 5)}
+        <div className='flex flex-col justify-center w-full mt-3.5'>
+          <span className='font-bold text-subText text-ellipsis text-[16px] sm:text-[19px] leading-[38px]'>
+            {truncateWords(title, 4)}
           </span>
           <Link
             href={publisherUrl}
@@ -42,24 +44,25 @@ const Card2: React.FC<Card2> = ({
           >
             {publisher}
           </Link>
-          <span className='text-subText text-[15px] '>
+          <span className='text-subText text-[15px]'>
             {course ||
-              truncateWords("Faculty of Health - Biochemistry Department", 6)}
+              truncateWords("Faculty of Health - Biochemistry Department", 5)}
           </span>
         </div>
 
-        <div className='flex items-center w-full h-full gap-x-4 mt-4'>
-          <button className='py-1.5 px-14 border-2 border-primaryBrand rounded-full text-[14px] text-primaryBrand w-full'>
-            See more in this category
+        {/*  */}
+        <div className='flex items-center w-full gap-x-3 my-4'>
+          <button className='py-1.5 px-4 border-2 border-primaryBrand rounded-full text-[14px] text-primaryBrand w-full whitespace-nowrap'>
+            More in this category
           </button>
           <Link
             href={downloadLink ? downloadLink : ""}
-            className='bg-primaryBrand text-white rounded-full p-2'
+            className='bg-primaryBrand text-white rounded-full py-1.5 px-[7px]'
             download={true}
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Download className="text-[24px]" />
+            <Download className='text-[24px]' />
           </Link>
         </div>
       </div>
