@@ -2,6 +2,7 @@ import { truncateWords } from "@/components/atoms/truncateWords";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
+import Book from "@/public/images/book1.png";
 
 interface Card1 {
   imageUrl: string | StaticImageData;
@@ -17,19 +18,21 @@ const Card1: React.FC<Card1> = ({
   publisherUrl,
 }) => {
   return (
-    <div className='flex flex-col items-center justify-center w-[393px] h-[493px] p-3 shadow-[0px_10px_80px_rgba(0,_0,_0,_0.32)] bg-white overflow-hidden'>
-      <div className='flex flex-col justify-center items-center h-full w-fit'>
-        <div className='w-[361px] h-full max-h-[410px] max-w-[361px]'>
+    <div className='min-w-[266px] w-[266px] h-[327px] rounded-2xl shadow-[0px_4px_50px_5px_rgba(217,_217,_217,_0.25)] px-3'>
+      <div className='flex flex-col justify-center h-full w-fit'>
+        <div className='w-[166px] h-[219px]'>
           <Image
-            src={imageUrl}
+            src={typeof imageUrl === "string" ? imageUrl : imageUrl.src}
             alt={title}
-            className='w-full h-full px-4 object-cover'
+            width={100}
+            height={100}
+            className='w-full h-full object-cover'
           />
         </div>
 
-        <div className='flex flex-col justify-center w-full mt-2'>
-          <span className='font-bold text-subText text-ellipsis text-[18px] leading-[20px]'>
-            {truncateWords(title, 5)}
+        <div className='flex flex-col justify-center w-full mt-3.5'>
+          <span className='font-bold text-subText text-ellipsis text-[16px] sm:text-[19px] leading-[24px]'>
+            {truncateWords(title, 4)}
           </span>
           <Link
             href={publisherUrl}
