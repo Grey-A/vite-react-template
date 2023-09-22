@@ -1,4 +1,5 @@
 import { ExpandMore } from "@mui/icons-material";
+import { url } from "inspector";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -10,10 +11,11 @@ interface DropdownItem {
 
 interface DropdownMenuProps {
   label: string;
+  url: string;
   items?: DropdownItem[];
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items, url }) => {
   const router = useRouter();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -36,13 +38,16 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
       {hasDropdownItems ? (
         <div className='relative h-full w-full z-[100]'>
           <Link
-            href='#'
-            className={`flex items-center gap-1.5 justify-center text-[#676C7A] text-base capitalize ${
-              router.asPath.includes("/" + label.toLowerCase())
-                ? "!text-blue-400"
-                : ""
+            href={url.toLowerCase()}
+            className={`flex items-center gap-1.5 justify-center text-[#676C7A] text-base capitalize duration-300 transition relative ${
+              router.asPath.includes(url.toLowerCase())
+                ? "!text-[#4E4BED] font-bold"
+                : "hover:scale-95"
             }`}
           >
+            {router.asPath.includes(url.toLowerCase()) && (
+              <span className='w-6 h-1 rounded-full bg-[#4E4BED] absolute -bottom-1 left-[40%] -translate-x-1/2'></span>
+            )}
             <span className='text-base'>{label}</span>
             <ExpandMore
               className={`text-2xl transition-all ease-in-out duration-300 transform ${
@@ -51,7 +56,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
             />
           </Link>
           <div
-            className={`absolute -left-14 bg-white shadow-[0px_10px_80px_rgba(0,_0,_0,_0.32)] py-3 space-y-2 w-[200px] block ${
+            className={`absolute -left-14 bg-white shadow-[0px_10px_80px_rgba(0,_0,_0,_0.32)] space-y-2 w-[200px] block ${
               isDropdownOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -63,8 +68,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, items }) => {
               <Link
                 key={item.label}
                 href={item.url}
-                className={`flex items-center !pl-4 !pr-10 !py-5 whitespace-nowrap w-full h-4 my-auto ${
-                  isActive(item.url) ? "bg-blue-400" : ""
+                className={`flex items-center !pl-4 !pr-10 !py-4 whitespace-nowrap w-full my-auto last:border-none border-b border-[#0E0D3570] ${
+                  isActive(item.url) ? "" : ""
                 }`}
               >
                 {item.label}
