@@ -4,7 +4,7 @@ import { navData } from "@/components/data/navigationData";
 
 const Header = () => {
   return (
-    <nav className='bg-white w-full'>
+    <nav className='max-w-[1440px] bg-[#fefefe] w-full mx-auto container'>
       <div className='w-full py-4 px-7'>
         <h4 className='w-fit text-[#676C7A] text-base ml-auto'>
           HandyGuide by GrandGale
